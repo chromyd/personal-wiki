@@ -1,0 +1,6 @@
+#!/bin/bash
+# Converts markdown checklists to HTML input checkboxes
+# Usage: ./checkbox input.md
+
+sed -e 's/- \[x\] \(.*\)/<input type="checkbox" checked> \1<br>/g' \
+    -e 's/- \[ \] \(.*\)/<input type="checkbox"> \1<br>/g' "$1" > "${1%.md}-html.md"
